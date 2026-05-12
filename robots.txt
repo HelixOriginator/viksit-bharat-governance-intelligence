@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://helixoriginator.github.io/viksit-bharat-governance-intelligence/sitemap.xml
