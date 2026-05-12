@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viksit Bharat Governance — Policy Intelligence Framework</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config={
+  theme:{ extend:{ fontFamily:{ sans:[ 'Inter', 'sans-serif']}}}
+}
+</script>
+<style>
+::selection{background:rgba(59,130,246,.3);color:#bfdbfe}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#050505}
+::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
+html{scroll-behavior:smooth}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse-slow{0%,100%{opacity:.06}50%{opacity:.12}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes grid-pulse{0%,100%{opacity:.03}50%{opacity:.07}}
+@keyframes count-up{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+.animate-fade-in-up{animation:fadeInUp .8s ease-out forwards;opacity:0}
+.animate-fade-in{animation:fadeIn 1s ease-out forwards;opacity:0}
+.delay-100{animation-delay:.1s}.delay-200{animation-delay:.2s}.delay-300{animation-delay:.3s}
+.delay-400{animation-delay:.4s}
+.glow-orb{animation:pulse-slow 6s ease-in-out infinite}
+.gradient-text{background:linear-gradient(135deg,#fff 0%,#3b82f6 50%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-blue{background:linear-gradient(135deg,#93c5fd,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gradient-text-amber{background:linear-gradient(135deg,#fcd34d,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.glass-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(12px);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.glass-card:hover{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04);transform:translateY(-2px)}
+.module-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden;transition:all .5s cubic-bezier(.4,0,.2,1)}
+.module-card::after{content:'';position:absolute;inset:0;background:radial-gradient(600px circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(59,130,246,.04),transparent 40%);opacity:0;transition:opacity .5s}
+.module-card:hover::after{opacity:1}
+.module-card:hover{border-color:rgba(59,130,246,.15);transform:translateY(-3px)}
+.shimmer-line{background:linear-gradient(90deg,rgba(59,130,246,0) 0%,rgba(59,130,246,.3) 50%,rgba(59,130,246,0) 100%);background-size:200% 100%;animation:shimmer 3s ease-in-out infinite}
+.stat-number{animation:count-up .6s ease-out forwards}
+.nav-glass{background:rgba(5,5,5,.7);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05)}
+.cta-btn{background:#fff;color:#000;transition:all .3s}
+.cta-btn:hover{background:#e5e5e5;transform:translateY(-1px);box-shadow:0 8px 30px rgba(255,255,255,.1)}
+.cta-btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2);transition:all .3s}
+.cta-btn-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+.elevator-pitch{background:linear-gradient(135deg,rgba(59,130,246,.05) 0%,rgba(245,158,11,.03) 100%);border:1px solid rgba(59,130,246,.12)}
+.flow-arrow{color:rgba(59,130,246,.4)}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent)}
+.badge{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:#93c5fd}
+.badge-amber{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:#fcd34d}
+.badge-green{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#86efac}
+.badge-purple{background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.2);color:#d8b4fe}
+.grid-bg{background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;animation:grid-pulse 8s ease-in-out infinite}
+.platform-btn{position:relative;display:flex;align-items:center;gap:16px;padding:20px 28px;border-radius:20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);text-decoration:none;transition:all .5s cubic-bezier(.4,0,.2,1);overflow:hidden}
+.platform-btn:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.15)}
+.platform-btn.btn-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .5s}
+.platform-btn:hover .btn-icon{transform:scale(1.08)}
+.platform-btn.btn-arrow{opacity:0;transform:translateX(-8px);transition:all .3s;flex-shrink:0}
+.platform-btn:hover .btn-arrow{opacity:1;transform:translateX(0)}
+.platform-btn-blue::before{background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(99,102,241,.03))}
+.platform-btn-blue:hover{border-color:rgba(59,130,246,.25);box-shadow:0 8px 40px rgba(59,130,246,.08)}
+.platform-btn-blue.btn-icon{background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(99,102,241,.12));border:1px solid rgba(59,130,246,.2)}
+.platform-btn-green::before{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(16,185,129,.03))}
+.platform-btn-green:hover{border-color:rgba(34,197,94,.25);box-shadow:0 8px 40px rgba(34,197,94,.08)}
+.platform-btn-green.btn-icon{background:linear-gradient(135deg,rgba(34,197,94,.12),rgba(16,185,129,.12));border:1px solid rgba(34,197,94,.2)}
+.platform-btn-amber::before{background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(234,88,12,.03))}
+.platform-btn-amber:hover{border-color:rgba(245,158,11,.25);box-shadow:0 8px 40px rgba(245,158,11,.08)}
+.platform-btn-amber.btn-icon{background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(234,88,12,.12));border:1px solid rgba(245,158,11,.2)}
+.table-header{background:rgba(255,255,255,.04);color:#cbd5e1;font-weight:500}
+.table-row{border-bottom:1px solid rgba(255,255,255,.04)}
+.table-row:last-child{border-bottom:none}
+</style>
+</head>
+<body class="bg-[#050505] text-white font-sans antialiased overflow-x-hidden">
+<!-- Ambient Background-->
+<div class="fixed inset-0 z-0 pointer-events-none">
+  <div class="absolute top-[-20%] left-[10%] w-[600px] h-[600px] bg-blue-500 rounded-full filter blur-[200px] glow-orb"></div>
+  <div class="absolute bottom-[-10%] right-[5%] w-[500px] h-[500px] bg-amber-500 rounded-full filter blur-[200px] glow-orb" style="animation-delay:3s"></div>
+  <div class="absolute top-[-40%] right-[20%] w-[400px] h-[400px] bg-blue-600 rounded-full filter blur-[200px] glow-orb" style="animation-delay:1.5s"></div>
+  <div class="grid-bg absolute inset-0"></div>
+</div>
+
+<!-- Navigation-->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-glass h-16 flex items-center px-6">
+  <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-amber-500 flex items-center justify-center">
+        <span class="iconify text-white text-sm" data-icon="lucide:hexagon"></span>
+      </div>
+      <span class="font-semibold text-sm tracking-tight">Viksit Bharat Governance</span>
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#problem" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">The Problem</a>
+      <a href="#solution" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Framework</a>
+      <a href="#architecture" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Diagnostic Stack</a>
+      <a href="#methodology" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Methodology & Evidence</a>
+      <a href="#tools" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300">Reference Tools</a>
+      <a href="#contact" class="cta-btn px-5 py-2 rounded-full text-xs font-medium">Institutional Review</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero-->
+<section class="relative z-10 pt-32 pb-16 md:pt-48 md:pb-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-wrap gap-3 mb-8 animate-fade-in-up">
+      <span class="badge text-xs font-medium px-3 py-1.5 rounded-full">Governance Intelligence</span>
+      <span class="badge-amber text-xs font-medium px-3 py-1.5 rounded-full">Indian Public Systems Framework</span>
+      <span class="badge-green text-xs font-medium px-3 py-1.5 rounded-full">Policy Diagnostics</span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-medium tracking-tight leading-[1.08] mb-8 animate-fade-in-up delay-100">
+      Viksit Bharat Governance<br>
+      <span class="gradient-text">An Indian-origin intelligence framework for diagnosing implementation friction in public schemes</span>
+    </h1>
+    <div class="elevator-pitch rounded-2xl p-6 md:p-8 max-w-4xl mb-12 animate-fade-in-up delay-200">
+      <p class="text-xs font-medium text-blue-400 uppercase tracking-wider mb-3">Operational Prototype: Bharat Governance Twin</p>
+      <p class="text-lg md:text-xl font-light text-neutral-200 leading-relaxed">
+        Detects <span class="text-white font-medium">why flagship welfare schemes leak at the ground level</span> and 
+        <span class="text-white font-medium">helps identify measurable administrative correction pathways</span> 
+        powered by Indian-origin governance logic and structured diagnostic analytics.
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-4 mb-16 animate-fade-in-up delay-300">
+      <a href="#methodology" class="cta-btn px-8 py-3.5 rounded-full text-sm font-medium inline-flex items-center gap-2">View Diagnostic Evidence<span class="iconify text-base" data-icon="lucide:arrow-right"></span></a>
+      <a href="#architecture" class="cta-btn-outline px-8 py-3.5 rounded-full text-sm font-medium inline-flex items-center gap-2">Explore Stack Architecture<span class="iconify text-base" data-icon="lucide:layers"></span></a>
+      <a href="#contact" class="cta-btn-outline px-8 py-3.5 rounded-full text-sm font-medium inline-flex items-center gap-2">Request Institutional Brief<span class="iconify text-base" data-icon="lucide:mail"></span></a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl animate-fade-in-up delay-400">
+      <div><div class="text-3xl md:text-4xl font-semibold gradient-text-blue stat-number">4</div><div class="text-xs text-neutral-500 mt-1 uppercase tracking-wider">Diagnostic Modules</div></div>
+      <div><div class="text-3xl md:text-4xl font-semibold gradient-text-amber stat-number">Live</div><div class="text-xs text-neutral-500 mt-1 uppercase tracking-wider">PM-Kisan Friction Pilot</div></div>
+      <div><div class="text-3xl md:text-4xl font-semibold gradient-text-blue stat-number">District</div><div class="text-xs text-neutral-500 mt-1 uppercase tracking-wider">Level Causality Mapping</div></div>
+      <div><div class="text-3xl md:text-4xl font-semibold gradient-text-amber stat-number">Open</div><div class="text-xs text-neutral-500 mt-1 uppercase tracking-wider">Methodology & Data Notes</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Problem-->
+<section id="problem" class="relative z-10 py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16">
+      <p class="text-xs font-medium text-red-400 uppercase tracking-wider mb-4">The Problem</p>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6">Flagship welfare schemes leak.<br><span class="text-neutral-500">Current monitoring systems rarely diagnose implementation causality.</span></h2>
+      <p class="text-neutral-400 text-base md:text-lg font-light leading-relaxed">India's central schemes are designed with intent but face implementation friction at the district, block, and gram panchayat level. Current monitoring systems track outputs, not failure causality. There is no intelligence layer that maps the full chain: policy intent → field friction → citizen impact → administrative correction.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center mb-4"><span class="iconify text-red-400 text-xl" data-icon="lucide:alert-triangle"></span></div>
+        <h3 class="text-sm font-medium mb-2">Scheme Leakage</h3>
+        <p class="text-neutral-500 text-xs leading-relaxed">Benefits fail to reach intended citizens due to eligibility gaps, duplication, bureaucratic bottlenecks, and last-mile delivery failures. Root-cause tracing is absent.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><span class="iconify text-amber-400 text-xl" data-icon="lucide:eye-off"></span></div>
+        <h3 class="text-sm font-medium mb-2">Rights Invisibility</h3>
+        <p class="text-neutral-500 text-xs leading-relaxed">Citizens do not know what they are entitled to. Grievance systems capture complaints but do not map systemic patterns of rights denial across schemes and geographies.</p>
+      </div>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4"><span class="iconify text-blue-400 text-xl" data-icon="lucide:unplug"></span></div>
+        <h3 class="text-sm font-medium mb-2">Knowledge-System Disconnect</h3>
+        <p class="text-neutral-500 text-xs leading-relaxed">Indian public systems frameworks remain archived but not operationalized for modern implementation analytics and ground-level correction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Solution-->
+<section id="solution" class="relative z-10 py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16">
+      <p class="text-xs font-medium text-blue-400 uppercase tracking-wider mb-4">The Framework</p>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6">Viksit Bharat Governance</h2>
+      <p class="text-neutral-400 text-base md:text-lg font-light leading-relaxed">A district-, scheme-, and citizen-level diagnostic system that maps the full governance chain from policy intent to field implementation friction, citizen rights impact, and recommended administrative correction.</p>
+    </div>
+    <div class="glass-card rounded-3xl p-8 md:p-12 mb-12">
+      <p class="text-xs text-neutral-500 uppercase tracking-wider mb-8">Intelligence Flow</p>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-2">
+        <div class="flex-1 text-center"><div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mx-auto mb-3"><span class="iconify text-blue-400 text-2xl" data-icon="lucide:scroll-text"></span></div><p class="text-xs font-medium">Policy Intent</p><p class="text-[10px] text-neutral-600 mt-1">Scheme design & mandate</p></div>
+        <div class="flow-arrow hidden md:block"><span class="iconify text-2xl" data-icon="lucide:chevron-right"></span></div>
+        <div class="flow-arrow md:hidden"><span class="iconify text-2xl" data-icon="lucide:chevron-down"></span></div>
+        <div class="flex-1 text-center"><div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto mb-3"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:search"></span></div><p class="text-xs font-medium">Field Friction Detection</p><p class="text-[10px] text-neutral-600 mt-1">Leakage & bottleneck mapping</p></div>
+        <div class="flow-arrow hidden md:block"><span class="iconify text-2xl" data-icon="lucide:chevron-right"></span></div>
+        <div class="flow-arrow md:hidden"><span class="iconify text-2xl" data-icon="lucide:chevron-down"></span></div>
+        <div class="flex-1 text-center"><div class="w-14 h-14 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center mx-auto mb-3"><span class="iconify text-green-400 text-2xl" data-icon="lucide:users"></span></div><p class="text-xs font-medium">Citizen Rights Impact</p><p class="text-[10px] text-neutral-600 mt-1">Entitlement gap analysis</p></div>
+        <div class="flow-arrow hidden md:block"><span class="iconify text-2xl" data-icon="lucide:chevron-right"></span></div>
+        <div class="flow-arrow md:hidden"><span class="iconify text-2xl" data-icon="lucide:chevron-down"></span></div>
+        <div class="flex-1 text-center"><div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mx-auto mb-3"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:wrench"></span></div><p class="text-xs font-medium">Administrative Correction</p><p class="text-[10px] text-neutral-600 mt-1">Actionable recommendations</p></div>
+      </div>
+    </div>
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="shimmer-line h-px w-32 mx-auto mb-8"></div>
+      <blockquote class="text-xl md:text-2xl font-light text-neutral-300 leading-relaxed italic">&#8220;Not just another knowledge archive, but an Indian-origin diagnostic framework that detects why flagship welfare schemes fail on the ground and helps identify measurable administrative correction pathways.&#8221;</blockquote>
+      <div class="shimmer-line h-px w-32 mx-auto mt-8"></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Architecture/Modules-->
+<section id="architecture" class="relative z-10 py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16">
+      <p class="text-xs font-medium text-amber-400 uppercase tracking-wider mb-4">Diagnostic Stack</p>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6">Four modules. One system.</h2>
+      <p class="text-neutral-400 text-base md:text-lg font-light leading-relaxed">Each module functions independently. Together, they form the Bharat Governance Twin operational prototype, moving from foundational knowledge to governance analytics, policy diagnostics, and citizen accountability.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="module-card rounded-3xl p-8 md:p-10" onmousemove="updateMouse(event,this)">
+        <div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:library"></span></div><span class="badge-amber text-[10px] font-medium px-2.5 py-1 rounded-full">Knowledge Layer</span></div>
+        <h3 class="text-lg font-medium mb-3">Sanatana Knowledge Bank</h3>
+        <p class="text-neutral-400 text-sm font-light leading-relaxed mb-6">Integrated Indian-origin knowledge infrastructure. Cross-domain integration of public ethics, duty-rights frameworks, and governance logic structured for modern policy analysis.</p>
+        <div class="flex flex-wrap gap-2 mb-6"><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Archival Framework</span><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Public Ethics Logic</span></div>
+      </div>
+      <div class="module-card rounded-3xl p-8 md:p-10" onmousemove="updateMouse(event,this)">
+        <div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center"><span class="iconify text-blue-400 text-2xl" data-icon="lucide:brain-circuit"></span></div><span class="badge text-[10px] font-medium px-2.5 py-1 rounded-full">Analytics Layer</span></div>
+        <h3 class="text-lg font-medium mb-3">Opal Intelligence Engine</h3>
+        <p class="text-neutral-400 text-sm font-light leading-relaxed mb-6">The governance analytics core. Processes scheme data, identifies implementation friction patterns, maps causality chains from policy design to delivery failure, and generates diagnostic intelligence.</p>
+        <div class="flex flex-wrap gap-2 mb-6"><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Causality Mapping</span><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Friction Detection</span></div>
+      </div>
+      <div class="module-card rounded-3xl p-8 md:p-10" onmousemove="updateMouse(event,this)">
+        <div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center"><span class="iconify text-green-400 text-2xl" data-icon="lucide:sprout"></span></div><span class="badge-green text-[10px] font-medium px-2.5 py-1 rounded-full">Policy Pilot</span></div>
+        <h3 class="text-lg font-medium mb-3">PM-Kisan Policy Intelligence</h3>
+        <p class="text-neutral-400 text-sm font-light leading-relaxed mb-6">A live pilot demonstrating diagnostic capability on India's flagship farmer welfare scheme. Maps benefit leakage, eligibility exclusion, payment delays, and grievance patterns at district and block level.</p>
+        <div class="flex flex-wrap gap-2 mb-6"><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Live Pilot</span><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">District-Level Diagnostics</span></div>
+      </div>
+      <div class="module-card rounded-3xl p-8 md:p-10" onmousemove="updateMouse(event,this)">
+        <div class="flex items-start justify-between mb-6"><div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:scale"></span></div><span class="badge-purple text-[10px] font-medium px-2.5 py-1 rounded-full">Accountability Layer</span></div>
+        <h3 class="text-lg font-medium mb-3">Bharat Rights Dashboard</h3>
+        <p class="text-neutral-400 text-sm font-light leading-relaxed mb-6">The citizen-facing accountability layer. Maps rights entitlements against actual service delivery, visualizes grievance patterns, and makes duty-rights frameworks legible for administrators and citizens.</p>
+        <div class="flex flex-wrap gap-2 mb-6"><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Rights Mapping</span><span class="text-[10px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-full text-neutral-400">Grievance Analytics</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Methodology & Evidence (NEW)-->
+<section id="methodology" class="relative z-10 py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16">
+      <p class="text-xs font-medium text-green-400 uppercase tracking-wider mb-4">Methodology & Evidence</p>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6">Diagnostic approach & pilot outputs</h2>
+      <p class="text-neutral-400 text-base md:text-lg font-light leading-relaxed">Transparent methodology, structured data sourcing, and open limitations for institutional review.</p>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="glass-card rounded-3xl p-8 md:p-10 space-y-6">
+        <h3 class="text-lg font-medium">Data Sources & Methodology</h3>
+        <div class="space-y-4">
+          <div>
+            <p class="text-xs font-medium text-neutral-300 mb-1">Primary Data Inputs</p>
+            <p class="text-sm text-neutral-400 font-light">Open government portals (PM-Kisan beneficiary lists, grievance redressal platforms, district administration reports, DBT transaction logs, and publicly available census/demographic overlays).</p>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-neutral-300 mb-1">Analytical Method</p>
+            <p class="text-sm text-neutral-400 font-light">Cross-dataset reconciliation to identify exclusion/leakage patterns. Friction mapping uses spatial-temporal clustering of payment delays, grievance spikes, and eligibility mismatches at block/district levels. Outputs are structured as diagnostic reports, not predictive models.</p>
+          </div>
+          <div>
+            <p class="text-xs font-medium text-neutral-300 mb-1">Date of Analysis</p>
+            <p class="text-sm text-neutral-400 font-light">Pilot baseline compiled: October 2025. Ongoing refresh: Monthly (public dataset dependent).</p>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card rounded-3xl p-8 md:p-10">
+        <h3 class="text-lg font-medium mb-4">Sample District Output (Illustrative)</h3>
+        <div class="overflow-x-auto rounded-xl border border-white/5">
+          <table class="w-full text-xs">
+            <thead class="table-header">
+              <tr>
+                <th class="text-left px-4 py-3">District / Block</th>
+                <th class="text-left px-4 py-3">Leakage Flag</th>
+                <th class="text-left px-4 py-3">Primary Bottleneck</th>
+                <th class="text-left px-4 py-3">Correction Action</th>
+              </tr>
+            </thead>
+            <tbody class="text-neutral-400">
+              <tr class="table-row hover:bg-white/5 transition-colors">
+                <td class="px-4 py-3 font-medium text-white">Alwar (Rajasthan)</td>
+                <td class="px-4 py-3 text-amber-400">High</td>
+                <td class="px-4 py-3">Aadhaar-bank mismatch</td>
+                <td class="px-4 py-3">Local CSC verification drive</td>
+              </tr>
+              <tr class="table-row hover:bg-white/5 transition-colors">
+                <td class="px-4 py-3 font-medium text-white">Gopalganj (Bihar)</td>
+                <td class="px-4 py-3 text-red-400">Critical</td>
+                <td class="px-4 py-3">Grievance routing delay</td>
+                <td class="px-4 py-3">Fast-track nodal officer assignment</td>
+              </tr>
+              <tr class="table-row hover:bg-white/5 transition-colors">
+                <td class="px-4 py-3 font-medium text-white">Dhar (MP)</td>
+                <td class="px-4 py-3 text-green-400">Moderate</td>
+                <td class="px-4 py-3">Land record discrepancy</td>
+                <td class="px-4 py-3">Tehsil-level reconciliation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-6 mt-6">
+      <div class="glass-card rounded-3xl p-8 md:p-10">
+        <h3 class="text-lg font-medium mb-3">Limitations</h3>
+        <ul class="space-y-3 text-sm text-neutral-400 font-light">
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Relies on publicly available administrative data; real-time DBT feeds require institutional API access.</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> District-level patterns indicate systemic friction but do not replace ground-level audit or beneficiary verification.</li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Currently optimized for cash-transfer schemes; adaptation to in-kind service delivery requires additional data structuring.</li>
+        </ul>
+      </div>
+      <div class="glass-card rounded-3xl p-8 md:p-10">
+        <h3 class="text-lg font-medium mb-3">Institutional Feedback Sought</h3>
+        <ul class="space-y-3 text-sm text-neutral-400 font-light">
+          <li class="flex items-start gap-2"><span class="text-amber-400 mt-1">•</span> Validation of diagnostic logic by NITI Aayog / Ministry of Finance implementation teams.</li>
+          <li class="flex items-start gap-2"><span class="text-amber-400 mt-1">•</span> Access to anonymized, scheme-level transaction data for friction model calibration.</li>
+          <li class="flex items-start gap-2"><span class="text-amber-400 mt-1">•</span> Guidance on integration pathways with existing DBT / grievance redressal architectures.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Reference Tools-->
+<section id="tools" class="relative z-10 py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16">
+      <p class="text-xs font-medium text-green-400 uppercase tracking-wider mb-4">Reference & Diagnostic Tools</p>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6">Explore the ecosystem</h2>
+      <p class="text-neutral-400 text-base md:text-lg font-light leading-relaxed">Supplementary platforms supporting governance diagnostics, policy literacy, and civilizational knowledge structuring.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-5">
+      <a href="https://helixoriginator.github.io/Sanatana-Knowledge-Bank-/" target="_blank" rel="noopener noreferrer" class="platform-btn platform-btn-amber group">
+        <div class="btn-icon"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:library"></span></div>
+        <div class="flex-1 min-w-0"><div class="flex items-center gap-2.5 mb-1"><h3 class="text-sm font-medium text-white">Sanatana Knowledge Bank</h3></div><p class="text-xs text-neutral-500 font-light leading-relaxed">Integrated civilizational archives and public systems logic repositories.</p></div>
+        <div class="btn-arrow"><span class="iconify text-amber-400 text-xl" data-icon="lucide:arrow-up-right"></span></div>
+      </a>
+      <a href="https://sanatana-intelligence.netlify.app/" target="_blank" rel="noopener noreferrer" class="platform-btn platform-btn-blue group">
+        <div class="btn-icon"><span class="iconify text-blue-400 text-2xl" data-icon="lucide:sparkles"></span></div>
+        <div class="flex-1 min-w-0"><div class="flex items-center gap-2.5 mb-1"><h3 class="text-sm font-medium text-white">Sanatana Intelligence</h3></div><p class="text-xs text-neutral-500 font-light leading-relaxed">Structured intelligence interface for civilizational reasoning and search.</p></div>
+        <div class="btn-arrow"><span class="iconify text-blue-400 text-xl" data-icon="lucide:arrow-up-right"></span></div>
+      </a>
+      <a href="https://helixoriginator.github.io/Sanatana-Dharmic-Policy-Intelligence-Platform/" target="_blank" rel="noopener noreferrer" class="platform-btn platform-btn-green group">
+        <div class="btn-icon"><span class="iconify text-green-400 text-2xl" data-icon="lucide:brain-circuit"></span></div>
+        <div class="flex-1 min-w-0"><div class="flex items-center gap-2.5 mb-1"><h3 class="text-sm font-medium text-white">Policy Intelligence Platform</h3></div><p class="text-xs text-neutral-500 font-light leading-relaxed">Live diagnostic interface for PM-Kisan friction mapping and exclusion analysis.</p></div>
+        <div class="btn-arrow"><span class="iconify text-green-400 text-xl" data-icon="lucide:arrow-up-right"></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider max-w-7xl mx-auto"></div>
+
+<!-- Contact/Institutional Review-->
+<section id="contact" class="relative z-10 py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="elevator-pitch rounded-3xl p-10 md:p-16 text-center max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-medium tracking-tight mb-6">
+        This is an Indian-origin governance<br class="hidden md:block">
+        intelligence platform that turns<br class="hidden md:block">
+        <span class="gradient-text">civilizational knowledge into measurable<br class="hidden md:block"> public-service improvement.</span>
+      </h2>
+      <p class="text-neutral-400 text-sm font-light max-w-2xl mx-auto mb-8">The diagnostic architecture is live. The pilot outputs are documented. The next step is structured institutional engagement, data validation, and pathway integration.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:kallolchitralimagicpen@gmail.com" class="cta-btn px-8 py-3.5 rounded-full text-sm font-medium inline-flex items-center gap-2">Request Institutional Brief<span class="iconify" data-icon="lucide:mail"></span></a>
+        <a href="#methodology" class="cta-btn-outline px-8 py-3.5 rounded-full text-sm font-medium inline-flex items-center gap-2">Review Methodology<span class="iconify" data-icon="lucide:file-text"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer-->
+<footer class="relative z-10 border-t border-white/5 py-16 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-amber-500 flex items-center justify-center"><span class="iconify text-white text-sm" data-icon="lucide:hexagon"></span></div><span class="font-semibold text-sm tracking-tight">Viksit Bharat Governance</span></div>
+        <p class="text-xs text-neutral-500 font-light leading-relaxed max-w-sm mb-4">An Indian-origin governance intelligence framework that detects why public schemes leak at the ground level and helps identify measurable administrative correction pathways.</p>
+        <p class="text-xs text-neutral-400 mt-6 border-t border-white/5 pt-6">Created by Kallol Chakrabarti , Global Independent Researcher, Orcid id: 0009 0007 4971 8936.</p>
+      </div>
+      <div>
+        <p class="text-xs font-medium text-neutral-300 uppercase tracking-wider mb-4">Framework</p>
+        <ul class="space-y-2">
+          <li><a href="#problem" class="text-xs text-neutral-500 hover:text-white transition-colors duration-300">The Problem</a></li>
+          <li><a href="#solution" class="text-xs text-neutral-500 hover:text-white transition-colors duration-300">Framework Overview</a></li>
+          <li><a href="#architecture" class="text-xs text-neutral-500 hover:text-white transition-colors duration-300">Diagnostic Stack</a></li>
+          <li><a href="#methodology" class="text-xs text-neutral-500 hover:text-white transition-colors duration-300">Methodology & Evidence</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs font-medium text-neutral-300 uppercase tracking-wider mb-4">Resources</p>
+        <ul class="space-y-2">
+          <li><a href="#tools" class="text-xs text-neutral-500 hover:text-white transition-colors duration-300">Reference Tools</a></li>
+          <li><a href="https://helixoriginator.github.io/Sanatana-Dharmic-Policy-Intelligence-Platform/" target="_blank" class="text-xs text-blue-400 hover:text-blue-300 transition-colors duration-300">Live PM-Kisan Pilot</a></li>
+          <li><a href="mailto:kallolchitralimagicpen@gmail.com" class="text-xs text-neutral-500 hover:text-white transition-colors duration-300">Institutional Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-[10px] text-neutral-600">&copy; 2026 Viksit Bharat Governance — HELIX Civilizational Operating System. All rights reserved.</p>
+      <p class="text-[10px] text-neutral-600">Open diagnostic prototype for policy implementation analysis.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function updateMouse(e,card){
+  var r=card.getBoundingClientRect(); 
+  card.style.setProperty('--mouse-x',((e.clientX-r.left)/r.width*100)+'%'); 
+  card.style.setProperty('--mouse-y',((e.clientY-r.top)/r.height*100)+'%');
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='translateY(0)';}});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.glass-card,.module-card,.platform-btn').forEach(function(el){
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease-out,transform .6s ease-out';obs.observe(el);
+});
+var nav=document.querySelector('nav');
+window.addEventListener('scroll',function(){nav.style.borderBottomColor=window.scrollY>50?'rgba(255,255,255,.08)':'rgba(255,255,255,.05';});
+</script>
+</body>
+</html>
